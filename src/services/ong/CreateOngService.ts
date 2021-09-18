@@ -1,5 +1,7 @@
 import { ongValidator } from '../../validations/ong'
 import { BadRequestException } from '../../shared/exceptions/BadRequestException'
+import { OngRepository } from '../../repositories/ong/OngRepository'
+import { ConflictException } from '../../shared/exceptions/ConflictException'
 
 interface IOngRequestData {
   ong: string
@@ -19,11 +21,14 @@ export class CreateOngService {
       })
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { ong, email, phone, city, state } = ongData
+    const ongRepository = new OngRepository()
 
-    return {
-      test: 123
+    const emailExists = await ongRepository.findByEmail(email)
+    if (emailExists) {
+      throw new ConflictException('E-mail indisponível')
     }
+
+    return await ongRepository.create({ ong, email, phone, city, state })
   }
 }

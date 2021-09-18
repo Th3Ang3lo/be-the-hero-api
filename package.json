@@ -7,7 +7,7 @@
     "@types/express": "^4.17.13",
     "@types/node": "^16.9.2",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
     "status-code-enum": "^1.0.0",
     "typeorm": "^0.2.37",
     "yup": "^0.32.9"
