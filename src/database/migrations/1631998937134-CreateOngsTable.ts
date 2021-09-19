@@ -21,6 +21,10 @@ export class CreateOngsTable1631998937134 implements MigrationInterface {
           type: 'varchar'
         },
         {
+          name: 'password',
+          type: 'varchar'
+        },
+        {
           name: 'phone',
           type: 'varchar',
           isNullable: true

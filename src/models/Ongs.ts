@@ -1,5 +1,6 @@
-import { PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, CreateDateColumn, Entity } from 'typeorm'
 
+@Entity('ongs')
 export class Ongs {
   @PrimaryGeneratedColumn('increment')
   id: number
@@ -9,6 +10,9 @@ export class Ongs {
 
   @Column()
   email: string
+
+  @Column()
+  password: string
 
   @Column()
   phone: string

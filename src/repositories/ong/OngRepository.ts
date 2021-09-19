@@ -1,6 +1,6 @@
 import { IOngRepository, IOngData } from './interfaces/IOngRepository'
 import { Ongs } from '../../models/Ongs'
-import { getRepository, Repository } from 'typeorm'
+import { getRepository, Repository, getManager } from 'typeorm'
 
 export class OngRepository implements IOngRepository {
   private readonly ongsOrmRepository: Repository<Ongs>
@@ -18,6 +18,12 @@ export class OngRepository implements IOngRepository {
   }
 
   public async create (ongData: IOngData): Promise<Ongs> {
-    return this.ongsOrmRepository.create(ongData)
+    const ong = this.ongsOrmRepository.create(ongData)
+
+    await getManager().transaction(async transactionalEntityManager => {
+      await transactionalEntityManager.save(ong)
+    })
+
+    return ong
   }
 }

@@ -7,7 +7,7 @@ import Routes from './routes'
 
 const app = express()
 
-app.use(express.json)
+app.use(express.json())
 app.use(Routes)
 
 const port = process.env.PORT

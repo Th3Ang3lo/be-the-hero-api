@@ -4,6 +4,7 @@ export interface IOngData {
   id?: number
   ong: string
   email: string
+  password?: string
   phone?: string
   city: string
   state: string
