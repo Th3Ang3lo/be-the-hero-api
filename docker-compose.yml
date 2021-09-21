@@ -1,13 +1,19 @@
-version: "3.9"
+version: "3.7"
 
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
+  database:
+    image: postgres
+    container_name: database_hero
     restart: always
+    ports:
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE: be_the_hero
-      MYSQL_USER: root
-      MYSQL_PASSWORD:
+      - POSTGRES_USER=be-the-hero
+      - POSTGRES_PASSWORD=be-the-hero
+      - POSTGRES_DB=be-the-hero
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local

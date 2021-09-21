@@ -3,6 +3,7 @@ import { BadRequestException } from '../../shared/exceptions/BadRequestException
 import { OngRepository } from '../../repositories/ong/OngRepository'
 import { ConflictException } from '../../shared/exceptions/ConflictException'
 import { generateHash } from '../../utils/hash'
+import { generateToken } from '../../utils/jwt'
 
 interface IOngRequestData {
   ong: string
@@ -13,8 +14,18 @@ interface IOngRequestData {
   state: string
 }
 
+interface IOngResponseData {
+  id: string
+  ong: string
+  email: string
+  phone: string
+  city: string
+  state: string
+  token: string
+}
+
 export class CreateOngService {
-  public async execute (ongData: IOngRequestData): Promise<any> {
+  public async execute (ongData: IOngRequestData): Promise<IOngResponseData> {
     try {
       await ongValidator.validate(ongData)
     } catch (error) {
@@ -35,6 +46,11 @@ export class CreateOngService {
     const createOng = await ongRepository.create({ ong, email, password: hashedPassword, phone, city, state })
 
     delete createOng.password
-    return createOng
+
+    const token = generateToken({ id: createOng.id })
+    return {
+      ...createOng,
+      token
+    } as unknown as IOngResponseData
   }
 }

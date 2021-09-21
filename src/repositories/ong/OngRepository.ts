@@ -1,4 +1,4 @@
-import { IOngRepository, IOngData } from './interfaces/IOngRepository'
+import { IOngRepository, IOngData } from './IOngRepository'
 import { Ongs } from '../../models/Ongs'
 import { getRepository, Repository, getManager } from 'typeorm'
 

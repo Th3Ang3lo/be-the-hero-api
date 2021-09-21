@@ -13,10 +13,10 @@ export default class CreateOngController implements Controller {
 
       return response.send(createOng)
     } catch (error) {
-      console.log(error)
       return response.status(error.statusCode || 500).send({
         statusCode: error.statusCode,
-        message: error.errorMessage || 'Internal server error'
+        message: error.errorMessage || 'Internal server error',
+        params: error.params
       })
     }
   }

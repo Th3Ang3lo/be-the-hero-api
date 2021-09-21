@@ -1,4 +1,4 @@
-import { Ongs } from '../../../models/Ongs'
+import { Ongs } from '../../models/Ongs'
 
 export interface IOngData {
   id?: number
@@ -13,6 +13,6 @@ export interface IOngData {
 }
 
 export interface IOngRepository {
-  findByEmail: (email: string) => any
+  findByEmail: (email: string) => Promise<Ongs>
   create: (ongData: IOngData) => Promise<Ongs>
 }

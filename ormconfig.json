@@ -1,11 +1,11 @@
 {
   "name": "default",
-  "type": "mysql",
-  "port": 3306,
+  "type": "postgres",
+  "port": 5432,
   "host": "localhost",
-  "username": "root",
-  "password": "",
-  "database": "be_the_hero",
+  "username": "be-the-hero",
+  "password": "be-the-hero",
+  "database": "be-the-hero",
   "entities": ["./src/models/**/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
