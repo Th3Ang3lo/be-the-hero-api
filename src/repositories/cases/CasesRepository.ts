@@ -21,4 +21,12 @@ export class CasesRepository implements ICasesRepository {
 
     return case_
   }
+
+  public async findByOngID (ongID: number): Promise<Cases[]> {
+    return await this.casesOrmRepository.find({
+      where: {
+        ongID
+      }
+    })
+  }
 }
