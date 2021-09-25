@@ -6,3 +6,4 @@ temp/*
 !temp/.gitkeep
 dist/
 .vscode
+*.sqlite
