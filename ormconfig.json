@@ -1,11 +1,8 @@
 {
   "name": "default",
-  "type": "postgres",
-  "port": 5432,
-  "host": "localhost",
-  "username": "be-the-hero",
-  "password": "be-the-hero",
-  "database": "be-the-hero",
+  "type": "sqlite",
+  "database": "db.sqlite",
+  "synchronize": true,
   "entities": ["./src/models/**/*.ts"],
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
