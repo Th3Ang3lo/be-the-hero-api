@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import { Controller } from '../../shared/protocols/controller'
 import { DeleteCaseService } from '../../services/cases/DeleteCaseService'
 
-export default class DeleteCasesController implements Controller {
+export default class DeleteCaseController implements Controller {
   public async handle (request: Request, response: Response): Promise<Response> {
     try {
       const caseID = request.body.id
