@@ -9,8 +9,8 @@ export default class DeleteCaseController implements Controller {
       const caseID = request.body.id
       const ongID = request.ong.id
 
-      const deleteCasesService = new DeleteCaseService()
-      await deleteCasesService.execute(caseID, ongID)
+      const deleteCaseService = new DeleteCaseService()
+      await deleteCaseService.execute(caseID, ongID)
 
       return response.status(204).send()
     } catch (error) {
