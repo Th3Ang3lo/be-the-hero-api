@@ -30,11 +30,11 @@ export class CasesRepository implements ICasesRepository {
     })
   }
 
-  public async deleteByCaseID (caseID: number): Promise<void> {
-    try {
-      await this.casesOrmRepository.delete(caseID)
-    } catch (err) {
-      throw new Error(err)
-    }
+  public async findByID (id: string): Promise<Cases> {
+    return await this.casesOrmRepository.findOne(id)
+  }
+
+  public async deleteByCaseID (caseID: string): Promise<void> {
+    await this.casesOrmRepository.delete(caseID)
   }
 }

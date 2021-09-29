@@ -6,7 +6,7 @@ import { DeleteCaseService } from '../../services/cases/DeleteCaseService'
 export default class DeleteCaseController implements Controller {
   public async handle (request: Request, response: Response): Promise<Response> {
     try {
-      const caseID = request.body.id
+      const caseID = request.params.id
       const ongID = request.ong.id
 
       const deleteCaseService = new DeleteCaseService()

@@ -14,6 +14,6 @@ const deleteCaseController = new DeleteCaseController()
 
 CasesRouter.post('/', ongAuthenticated, createCaseController.handle)
 CasesRouter.get('/', ongAuthenticated, listCasesController.handle)
-CasesRouter.delete('/', ongAuthenticated, deleteCaseController.handle)
+CasesRouter.delete('/:id', ongAuthenticated, deleteCaseController.handle)
 
 export default CasesRouter
