@@ -12,4 +12,5 @@ export interface ICaseData {
 export interface ICasesRepository {
   create: (caseData: ICaseData, ongID: number) => Promise<Cases>
   findByOngID: (ongID: number) => Promise<Cases[]>
+  deleteByCaseID: (id: number) => Promise<void>
 }
