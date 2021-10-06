@@ -7,7 +7,7 @@ export class CreateOngsTable1631998937134 implements MigrationInterface {
       columns: [
         {
           name: 'id',
-          type: 'int',
+          type: 'integer',
           isGenerated: true,
           generationStrategy: 'increment',
           isPrimary: true

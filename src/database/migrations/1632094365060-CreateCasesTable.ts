@@ -7,7 +7,7 @@ export class CreateCasesTable1632094365060 implements MigrationInterface {
       columns: [
         {
           name: 'id',
-          type: 'int',
+          type: 'integer',
           isGenerated: true,
           generationStrategy: 'increment',
           isPrimary: true
@@ -22,11 +22,11 @@ export class CreateCasesTable1632094365060 implements MigrationInterface {
         },
         {
           name: 'amount',
-          type: 'int'
+          type: 'integer'
         },
         {
           name: 'ongID',
-          type: 'int'
+          type: 'integer'
         },
         {
           name: 'created_at',
